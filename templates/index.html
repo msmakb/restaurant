@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block headers %}
+<style>
+    .cat-img {
+        width: 75px;
+        height: auto;
+        cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+        .img-sm {
+            content: url({% static 'top-2.jpg' %});
+        }
+    }
+
+    @media (max-width: 576px) {
+        .img-sm {
+            content: url({% static 'top-3.jpg' %});
+        }
+
+        .cat {
+            max-width: 350px;
+        }
+
+        .cat-img {
+            width: 50px;
+            height: auto;
+        }
+    }
+
+    .cat {
+        background-color: rgba(10, 10, 10, 0.8);
+        maxw-idth: 70%;
+        margin-top: -30px;
+        margin-bottom: -30px;
+        border-radius: 30px;
+    }
+
+    .cat-badge {
+        font-size: 20px;
+        margin-left: -50px;
+        margin-top: -8px;
+        background-color: rgba(50, 100, 10, 0.8);
+    }
+</style>
+{% endblock headers %}
+{% block content %}
+<div class="container-fluid text-white">
+    <div class="row">
+        <img src="{% static 'top.webp' %}" class="img-fluid img-sm m-0 p-0" alt="">
+    </div>
+
+    <div class="row justify-content-center">
+
+        <div class="row cat w-auto position-relative">
+            <span class="cat-badge position-absolute top-0 start-100 translate-middle badge rounded-pill border w-50">
+                Category
+                <span class="visually-hidden">unread messages</span>
+            </span>
+            <div class="col-3 p-2 text-center">
+                <img class="cat-img" src="{% static 'burger.png' %}" alt="">
+                <h6>Cat 1</h6>
+            </div>
+            <div class="col-3 p-2 text-center">
+                <img class="cat-img" src="{% static 'piza.png' %}" alt="">
+                <h6>Cat 2</h6>
+            </div>
+            <div class="col-3 p-2 text-center">
+                <img class="cat-img" src="{% static 'burger.png' %}" alt="">
+                <h6>Cat 3</h6>
+            </div>
+            <div class="col-3 p-2 text-center">
+                <img class="cat-img" src="{% static 'piza.png' %}" alt="">
+                <h6>Cat 4</h6>
+            </div>
+        </div>
+
+        <div class="row">
+
+            {% for i in r %}
+            <div class="col-md-6 col-lg-4 col-xl-3 card p-5 border-0" style="background-color: rgba(0, 0, 0, 0);">
+                <img src="{% static '1.webp' %}" alt="">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</div>
+{% endblock content %}
